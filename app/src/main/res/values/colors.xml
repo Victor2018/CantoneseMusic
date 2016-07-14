@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CDDC39</color>
+    <color name="colorPrimaryDark">#AFB42B</color>
+    <color name="colorAccent">#CDDC39</color>
+
+    <!--lime-->
+    <color name="colorLimePrimary">#CDDC39</color>
+    <color name="colorLimePrimaryDark">#AFB42B</color>
+    <color name="colorLimeAccent">#FF4081</color>
+    <color name="colorLimePrimaryCenter">#52540c</color>
+
+    <!-- 悬浮按钮 -->
+    <color name="fab_menu_colorNormal">@color/colorLimePrimary</color>
+    <color name="fab_menu_colorPressed">@color/colorLimePrimaryDark</color>
+    <color name="fab_menu_colorRipple">#B3E5FC</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="yellow">#ffff00</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_grey">#e0e0e0</color>
+    <color name="dark_grey">#c3c3c3</color>
+    <color name="blue_grey">#607D8B</color>
+
+    <color name="blue_btn_bg_color">#AEDEF4</color>
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+</resources>

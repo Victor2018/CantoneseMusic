@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/lv_music"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@color/white">
+        <com.victor.view.CircleImageView
+            android:id="@+id/civ_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/default_cover"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/yellow"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_toRightOf="@+id/civ_img"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_music_list_icon_more" />
+        <com.victor.view.DonutProgress
+            android:id="@+id/dp_progress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:donut_max="100"
+            app:donut_unfinished_color="@color/light_grey"
+            app:donut_finished_color="@color/colorLimePrimary"
+            app:donut_unfinished_stroke_width="3dp"
+            app:donut_finished_stroke_width="6dp"
+            app:donut_text_size="12sp"
+            app:donut_prefix_text="等待"
+            app:donut_text_color="@color/black"
+            android:visibility="gone"/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
