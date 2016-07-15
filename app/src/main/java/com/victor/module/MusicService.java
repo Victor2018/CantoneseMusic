@@ -1,6 +1,8 @@
 package com.victor.module;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
@@ -12,14 +14,17 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.victor.dao.DbDao;
+import com.victor.data.MusicData;
 import com.victor.util.Constant;
+import com.victor.util.SharePreferencesUtil;
 
 public class MusicService extends Service implements OnCompletionListener{
 	private String TAG = "MusicService";
-	private MediaPlayer mp;
-	private Cursor cursor;
+	private MediaPlayer mediaPlayer;
 	private int totalNum;
 	private int current;
+	List<MusicData> musicDatas = new ArrayList<>();
 //	private String mLastPlayUrl;//上次播放url
 	@Override
 	public IBinder onBind(Intent arg0) {
@@ -29,8 +34,8 @@ public class MusicService extends Service implements OnCompletionListener{
 
 	@Override
 	public void onCreate() {
-		mp = new MediaPlayer();
-		mp.setOnCompletionListener(this);
+		mediaPlayer = new MediaPlayer();
+		mediaPlayer.setOnCompletionListener(this);
 	}
 
 	@Override
@@ -39,25 +44,27 @@ public class MusicService extends Service implements OnCompletionListener{
 		if (intent == null || intent.getAction() == null) {
 			return START_NOT_STICKY;
 		}
-		int playAction = intent.getIntExtra("PLAY_ACTION",-1);
-		String playUrl = intent.getStringExtra("PLAY_URL");
-		if (playAction == Constant.Action.PLAY) {
-			play(playUrl);
-		} else if (playAction == Constant.Action.PAUSE) {
-			pause();
-		} else if (playAction == Constant.Action.STOP) {
-			stop();
-		} else if (playAction == Constant.Action.NEXT) {
-			next();
-		} else if (playAction == Constant.Action.PREV) {
-			prev();
+
+		int action = intent.getIntExtra(Constant.ACTION_KEY,-1);
+		current = SharePreferencesUtil.getInt(getApplicationContext(),Constant.CURRENT_POSITION_KEY);
+		musicDatas = DbDao.getInstance(getApplicationContext()).queryMusic(Constant.TB.MUSIC_CURRENT);
+		if (musicDatas != null && musicDatas.size() > 0) {
+			totalNum = musicDatas.size();
+			if (current < totalNum) {
+				playAction(action);
+			}
 		}
+
 		return START_STICKY;
 	}
 
 	private void next(){
 		current++;
-		play("");
+		if (current == totalNum) {
+			current = 0;
+		}
+		SharePreferencesUtil.putInt(getApplicationContext(),Constant.CURRENT_POSITION_KEY,current);
+		play(false);
 	}
 
 	private void prev(){
@@ -65,18 +72,23 @@ public class MusicService extends Service implements OnCompletionListener{
 		if (current == -1) {
 			current = totalNum - 1;
 		}
-		play("");
+		SharePreferencesUtil.putInt(getApplicationContext(),Constant.CURRENT_POSITION_KEY,current);
+		play(false);
 	}
 	private void pause(){
-		mp.pause();
+		mediaPlayer.pause();
 	}
 	private void stop(){
-		mp.stop();
+		mediaPlayer.stop();
 	}
 
 
-	private void play(String playUrl){
-		Log.e(TAG,"play()%%%%%%%%%%%%%%%%%%%%");
+	private void play(boolean isPlayOnline){
+		Log.e(TAG,"play()......");
+		String playUrl = musicDatas.get(current).file_link;
+		if (isPlayOnline) {
+			playUrl = SharePreferencesUtil.getString(getApplicationContext(),Constant.PLAY_ONLINE_URL_KEY);
+		}
 		if (TextUtils.isEmpty(playUrl)) {
 			Log.e(TAG,"playUrl is empty!!!!");
 			return;
@@ -87,10 +99,10 @@ public class MusicService extends Service implements OnCompletionListener{
 //		}
 //		mLastPlayUrl = playUrl;
 		try {
-			mp.reset();
-			mp.setDataSource(playUrl);
-			mp.prepare();
-			mp.start();
+			mediaPlayer.reset();
+			mediaPlayer.setDataSource(playUrl);
+			mediaPlayer.prepare();
+			mediaPlayer.start();
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,5 +120,28 @@ public class MusicService extends Service implements OnCompletionListener{
 	@Override
 	public void onCompletion(MediaPlayer mp) {
 		next();
+	}
+
+	private void playAction (int action) {
+		switch (action) {
+			case Constant.Action.PLAY:
+				play(false);
+				break;
+			case Constant.Action.PLAY_ONLINE:
+				play(true);
+				break;
+			case Constant.Action.PAUSE:
+				pause();
+				break;
+			case Constant.Action.PREV:
+				prev();
+				break;
+			case Constant.Action.NEXT:
+				next();
+				break;
+			case Constant.Action.STOP:
+				stop();
+				break;
+		}
 	}
 }

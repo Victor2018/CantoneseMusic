@@ -52,4 +52,10 @@
         <item>分享</item>
         <item>下载</item>
     </string-array>
+
+    <string-array name="local_music_dialog">
+        <item>分享</item>
+        <item>设为铃声</item>
+        <item>删除</item>
+    </string-array>
 </resources>

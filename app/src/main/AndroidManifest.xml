@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,18 +36,24 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <service android:name="com.victor.module.MusicService"
-            android:enabled="true"
-            android:exported="false"
-            android:label="Player"
-            android:stopWithTask="false">
+        <service android:name="com.victor.module.MusicService">
             <intent-filter>
-                <action android:name="com.app.media.MUSIC_SERVICE" />
-                <!-- 关机广播 -->
-                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
-                <action android:name="com.app.media.stopService" />
+                <action android:name="com.service.musicservice" />
             </intent-filter>
         </service>
+
+        <receiver android:name="com.victor.util.ScanSdReceiver">
+            <intent-filter>
+                <action android:name="com.recevier.scan.recevier"/>
+                <action android:name="android.intent.action.MEDIA_SCANNER_STARTED"/>
+                <action android:name="android.intent.action.MEDIA_SCANNER_SCAN_FILE"/>
+                <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.victor.db.DataBaseContent"
+            android:authorities="content.music.content"/>
     </application>
 
 </manifest>

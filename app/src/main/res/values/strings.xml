@@ -9,5 +9,6 @@
     <string name="load_fail">加载失败，请检查网络后重试</string>
     <string name="search">搜索</string>
     <string name="search_tips">歌曲名、歌手名</string>
+    <string name="delete_music">删除%s？</string>
 
 </resources>
