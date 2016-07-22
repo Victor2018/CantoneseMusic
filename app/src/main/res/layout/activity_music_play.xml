@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_play_frag"
+    android:fitsSystemWindows="true"
+    tools:context="com.victor.music.MusicPlayActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+            <com.victor.view.MediaPlayView
+                android:id="@+id/mpv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_play_time"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="00:00"
+                    android:textColor="@android:color/white" />
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="00:00"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:id="@+id/ib_play"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:background="@null"
+                    android:src="@drawable/btn_play_selector" />
+
+                <ImageButton
+                    android:id="@+id/ib_prev"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:layout_toLeftOf="@id/ib_play"
+                    android:background="@null"
+                    android:src="@drawable/btn_prev_selector" />
+
+                <ImageButton
+                    android:id="@+id/ib_next"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:layout_toRightOf="@id/ib_play"
+                    android:background="@null"
+                    android:src="@drawable/btn_next_selector" />
+
+                <ImageButton
+                    android:id="@+id/ib_loop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:layout_toLeftOf="@id/ib_prev"
+                    android:background="@null"
+                    android:src="@mipmap/icon_loop" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/ib_next"
+                    android:scaleType="centerInside"
+                    android:background="@null"
+                    android:src="@mipmap/icon_menu" />
+            </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
