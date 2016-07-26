@@ -50,12 +50,12 @@
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_play_btn_play"/>
+        android:src="@drawable/btn_play_selector"/>
     <ImageView
         android:id="@+id/iv_next"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginRight="10dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_play_btn_next"/>
+        android:src="@drawable/btn_next_selector"/>
 </LinearLayout>

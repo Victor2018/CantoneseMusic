@@ -34,4 +34,12 @@
         <attr name="donut_circle_starting_degree" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="LrcView">
+        <attr name="textSize" format="dimension" />
+        <attr name="dividerHeight" format="dimension" />
+        <attr name="normalTextColor" format="reference|color" />
+        <attr name="currentTextColor" format="reference|color" />
+        <attr name="animationDuration" format="integer" />
+    </declare-styleable>
+
 </resources>
