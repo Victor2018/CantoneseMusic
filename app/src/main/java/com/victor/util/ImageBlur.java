@@ -1,0 +1,1 @@
+package com.victor.util;import android.graphics.Bitmap;/** * Created by victor on 2016/7/28. */public class ImageBlur {    public static native void blurIntArray(int[] pImg, int w, int h, int r);    public static native void blurBitMap(Bitmap bitmap, int r);    static {        System.loadLibrary("ImageBlur");    }}
