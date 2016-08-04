@@ -14,7 +14,7 @@ android {
         ndk {
             moduleName "ImageBlur"
             ldLibs "m", "log", "jnigraphics"
-            abiFilters "armeabi", "armeabi-v7a", "x86"
+//            abiFilters "armeabi", "armeabi-v7a", "x86"
         }
 
     }
@@ -25,9 +25,6 @@ android {
         }
     }
 
-    sourceSets.main {
-        jni.srcDirs = []
-    }
 }
 
 dependencies {
