@@ -25,10 +25,16 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.3.0'
@@ -39,5 +45,5 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.google.code.gson:gson:2.5'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
+    compile files('libs/AMap3DMap_3.4.0_AMapNavi_1.9.1_AMapSearch_3.4.0_AMapLocation_2.8.0_20160811.jar')
 }
