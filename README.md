@@ -12,5 +12,7 @@
 
 
 # 关注开发者：
-- 新浪微博： zhanghaifeng903@sina.com
+- 邮箱： victor423099@gmail.com
+- 新浪微博
+![image](https://github.com/Victor2018/CantoneseMusic/raw/master/SrceenShot/sina_weibo.jpg)
 
