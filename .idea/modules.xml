@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CantoneseMusic.iml" filepath="$PROJECT_DIR$/CantoneseMusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UpdateLib/UpdateLib.iml" filepath="$PROJECT_DIR$/UpdateLib/UpdateLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
