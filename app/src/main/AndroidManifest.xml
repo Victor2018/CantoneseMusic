@@ -34,6 +34,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
+            android:name="UPDATE_URL_KEY"
+            android:value="https://raw.githubusercontent.com/Victor2018/CantoneseMusic/master/docs/update_json.txt"/>
+
+        <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="d1b6f97e7398456b9b6b84613b3e4c7c" />
         <!-- 定位需要的服务 -->

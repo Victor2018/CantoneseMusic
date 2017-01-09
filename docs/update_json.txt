@@ -1,1 +1,1 @@
-{"app_name":"CantoneseMusic","version_name":"1.0.2","version_code":2,"update_content":"1,add share module;2,add auto update app module;3,modify play bug","url":"https://github.com/Victor2018/CantoneseMusic/raw/master/app/CantoneseMusic.apk"}
+{"app_name":"CantoneseMusic","version_name":"1.0.3","version_code":3,"update_content":"1,add share module;2,add auto update app module;3,modify play bug","url":"https://github.com/Victor2018/CantoneseMusic/raw/master/app/CantoneseMusic.apk"}
