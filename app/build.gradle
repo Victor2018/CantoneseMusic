@@ -6,7 +6,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("E:\\androidProjects\\CantoneseMusic\\docs\\victor_keystore.jks")
+            storeFile file("../docs/victor_keystore.jks")
             storePassword "android"
             keyAlias "victor"
             keyPassword "android"
@@ -17,8 +17,8 @@ android {
         applicationId "com.victor.music"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.5"
 
         ndk {
             moduleName "ImageBlur"

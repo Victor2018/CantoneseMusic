@@ -145,12 +145,19 @@ public class MusicService extends Service implements OnCompletionListener,OnInfo
 			Loger.e(TAG,"not found music to play!");
 			return;
 		}
-		String playUrl = musicDatas.get(current).data;
+		String playUrl = "";
+		if (current < musicDatas.size()) {
+			playUrl = musicDatas.get(current).data;
+		}
 		if (isPlayOnline) {
 			playUrl = SharePreferencesUtil.getString(getApplicationContext(),Constant.PLAY_ONLINE_URL_KEY);
 		}
 		if (mediaPlayer == null) {
 			Loger.e(TAG,"mediaPlayer is null");
+			return;
+		}
+		if (TextUtils.isEmpty(playUrl)) {
+			Loger.e(TAG,"playUrl is null");
 			return;
 		}
 		mMusicPlayHelper.sendRequestWithParms(Constant.Msg.PLAY_MUSIC,playUrl);
